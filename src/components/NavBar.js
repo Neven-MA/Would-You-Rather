@@ -4,9 +4,8 @@ import {NavLink} from 'react-router-dom'
 import {Menu,Image,Header} from 'semantic-ui-react'
 import Logout from './Logout.js'
 
-class NavBar extends React.Component{
-  render(){
-    const {user}=this.props
+const NavBar=(props)=>{
+    const {user}=props
     return(
     <Menu attached='top' color='yellow' pointing secondary stackable>
     <Menu.Item name='Home' as={NavLink} to='/' exact />
@@ -23,7 +22,6 @@ class NavBar extends React.Component{
     </Menu.Menu>
     </Menu>
     )
-  }
 }
 
 const mapStateToProps=({users,authedUser})=>{

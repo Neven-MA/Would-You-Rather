@@ -7,8 +7,7 @@ import Error from './Error.js'
 const PollContainer=(props)=>{
   const {answeredId,wrongId,question}=props
 
-
-    {if(wrongId===false){
+    if(wrongId===false){
       if(answeredId.includes(question.id)){
         return(<PollResult id={question.id}/>)
       }
@@ -19,8 +18,6 @@ const PollContainer=(props)=>{
     else{
       return(<Error/>)
     }
-    }
-
 }
 
 const mapStateToProps=({questions,users,authedUser},props)=>{

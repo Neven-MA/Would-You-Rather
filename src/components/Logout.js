@@ -3,23 +3,21 @@ import {connect} from 'react-redux'
 import {Button} from 'semantic-ui-react'
 import {unsetAuthedUser} from '../actions/authedUser.js'
 
-class Logout extends React.Component{
-  handleClick=(e)=>{
-    const {dispatch}=this.props
+const Logout =(props)=>{
+  const handleClick=(e)=>{
+    const {dispatch}=props
     dispatch(unsetAuthedUser())
   }
 
-  render(){
-    return(
+  return(
       <Button basic color='yellow'
               floated='right'
               content='Logout'
               labelPosition="right"
               icon='log out'
               size='small'
-              onClick={this.handleClick}/>
+              onClick={handleClick}/>
     )
-  }
 }
 
 export default connect()(Logout)

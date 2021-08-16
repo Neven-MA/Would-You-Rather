@@ -2,9 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Label,Grid,Header,Image,Segment,Divider} from 'semantic-ui-react'
 
-class LeaderBoard extends React.Component{
-  render(){
-    const {usersData}=this.props
+const LeaderBoard =(props)=>{
+    const {usersData}=props
     const colors=['yellow','grey','orange']
     return(
       <Grid  padded="vertically" columns={1} centered>
@@ -39,7 +38,6 @@ class LeaderBoard extends React.Component{
       </Grid.Row>
       </Grid>
     )
-  }
 }
 
 const mapStateToProps=({questions,users,authedUser})=>{

@@ -1,8 +1,7 @@
-import React,{Fragment} from 'react'
+import React from 'react'
 import {connect} from 'react-redux'
 import {Button,Form,Grid,Header,Image,Segment,Radio} from 'semantic-ui-react'
 import {handleSaveQuestionAnswer} from '../actions/shared.js'
-import Error from './Error.js'
 
 class Poll extends React.Component{
   state={value:''}
@@ -13,7 +12,7 @@ class Poll extends React.Component{
 
   handleSubmit=(e)=>{
   e.preventDefault()
-  const {dispatch,question,authedUser,id}=this.props
+  const {dispatch,question,authedUser}=this.props
   const answer=this.state.value
   if(this.state.value!==null){
     dispatch(handleSaveQuestionAnswer(authedUser,question.id,answer))
@@ -76,7 +75,6 @@ const mapStateToProps=({questions,users,authedUser},{id})=>{
     const user=users[question.author]
 
     return{
-      id,
       question,
       user,
       authedUser,
