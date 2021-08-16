@@ -17,16 +17,13 @@ class Poll extends React.Component{
   const answer=this.state.value
   if(this.state.value!==null){
     dispatch(handleSaveQuestionAnswer(authedUser,question.id,answer))
-    this.props.history.push(`/result/${id}`)
    }
   }
 
   render(){
-    const {question,user,wrongId}=this.props
+    const {question,user}=this.props
     const {value}=this.state
     return(
-      <Fragment>
-      {(wrongId===false)?
       <Grid  padded="vertically" columns={1} centered>
       <Grid.Row>
       <Grid.Column style={{ maxWidth: 550}}>
@@ -69,31 +66,21 @@ class Poll extends React.Component{
       </Segment>
       </Grid.Column>
       </Grid.Row>
-      </Grid>:
-      <Error/>}
-      </Fragment>
+      </Grid>
     )
   }
 }
 
-const mapStateToProps=({questions,users,authedUser},props)=>{
-    const {id}=props.match.params
+const mapStateToProps=({questions,users,authedUser},{id})=>{
     const question=questions[id]
-    let user
-    let wrongId=false
-    if(question===undefined){
-      wrongId=true
-    }
-    else{
-      user=users[question.author]
-    }
+    const user=users[question.author]
 
     return{
       id,
       question,
       user,
       authedUser,
-      wrongId
+
     }
   }
 

@@ -11,6 +11,7 @@ import NewQuestion from './NewQuestion.js'
 import Home from './Home.js'
 import NavBar from './NavBar.js'
 import Error from './Error.js'
+import PollContainer from './PollContainer.js'
 
 class App extends React.Component{
  componentDidMount(){
@@ -29,9 +30,7 @@ class App extends React.Component{
        <Route exact path="/" component={Home}/>
        <Route  path="/add" component={NewQuestion}/>
        <Route  path="/leaderboard" component={LeaderBoard}/>
-       <Route  path="/questions/:id" component={Poll}/>
-       <Route  path="/questions/wrong_id" component={Error}/>
-       <Route  path="/result/:id" component={PollResult}/>
+       <Route  path="/questions/:id" component={PollContainer}/>
        <Route component={Error}/>
        </Switch>
        </Fragment>

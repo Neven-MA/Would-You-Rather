@@ -59,22 +59,10 @@ class PollResult extends React.Component{
   }
 }
 
-const mapStateToProps=({questions,users,authedUser},{id,match})=>{
-    let question
-    let user
-    let authedUserVote
-
-    if(id!==undefined){
-      question=questions[id]
-      user=users[question.author]
-      authedUserVote=users[authedUser].answers[question.id]
-    }
-    else{
-      const {id}=match.params
-      question=questions[id]
-      user=users[question.author]
-      authedUserVote=users[authedUser].answers[question.id]
-    }
+const mapStateToProps=({questions,users,authedUser},{id})=>{
+    const question=questions[id]
+    const user=users[question.author]
+    const authedUserVote=users[authedUser].answers[question.id]
 
     return{
       question,
